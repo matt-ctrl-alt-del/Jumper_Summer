@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://dap7kj6j0wtge"]
+
+[ext_resource type="Texture2D" uid="uid://cl2yrk1cot8rq" path="res://Sprites/ui/water_transition.png" id="1_bmpvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjmru"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 0, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqh25"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7ax"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 100, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bko61"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 150, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed18b"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 200, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrd00"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 250, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igqv7"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 300, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viuly"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 350, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2qd2"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 400, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt1g3"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 400, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv4e1"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 350, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4mo5"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 300, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poi74"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 250, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfvj3"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 200, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2ls6"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 150, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rti"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 100, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg4me"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 50, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_accyr"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 0, 100, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_662ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjmru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqh25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bko61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed18b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrd00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igqv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viuly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2qd2")
+}],
+"loop": 0,
+"name": &"fade_in",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt1g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv4e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4mo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poi74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfvj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2ls6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1rti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg4me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_accyr")
+}],
+"loop": 0,
+"name": &"fade_out",
+"speed": 5.0
+}]
+
+[node name="Water_transition" type="Control" unique_id=7010909]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(11.5, 13)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2011584534]
+sprite_frames = SubResource("SpriteFrames_662ny")
+animation = &"fade_in"
+autoplay = "fade_in"
