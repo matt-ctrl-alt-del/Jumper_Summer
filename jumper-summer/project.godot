@@ -15,6 +15,10 @@ run/main_scene="uid://ddrs6ibxwaimi"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BackgroundAudio="*uid://cacoe0112xh45"
+
 [display]
 
 window/stretch/mode="canvas_items"

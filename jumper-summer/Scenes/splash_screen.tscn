@@ -1,5 +1,116 @@
 [gd_scene format=3 uid="uid://ddrs6ibxwaimi"]
 
+[ext_resource type="Script" uid="uid://ckyoyr3b1fkeh" path="res://Scripts/splash_screen.gd" id="1_h5jmx"]
+[ext_resource type="Texture2D" uid="uid://cbrhll1uxb50a" path="res://Sprites/ui/summer_splash1-Sheet.png" id="2_hnr0x"]
+[ext_resource type="Texture2D" uid="uid://55ctssi4ys16" path="res://Sprites/ui/matt_not_found_splash-Sheet.png" id="3_8jcts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84dv6"]
+atlas = ExtResource("3_8jcts")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdqlo"]
+atlas = ExtResource("3_8jcts")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs5ik"]
+atlas = ExtResource("3_8jcts")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dvso"]
+atlas = ExtResource("3_8jcts")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijla5"]
+atlas = ExtResource("3_8jcts")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_662ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84dv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdqlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs5ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dvso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijla5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0nmm"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7sfw"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv2pb"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt640"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e0fc"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xpdl"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(5760, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjuxh"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(6912, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6hsq"]
+atlas = ExtResource("2_hnr0x")
+region = Rect2(8064, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2slb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0nmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7sfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv2pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt640")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e0fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xpdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjuxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6hsq")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Splash_screen" type="Control" unique_id=1674370568]
 layout_mode = 3
 anchors_preset = 15
@@ -7,13 +118,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h5jmx")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=864401876]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=105814576]
+sprite_frames = SubResource("SpriteFrames_662ny")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=1337780761]
+sprite_frames = SubResource("SpriteFrames_l2slb")

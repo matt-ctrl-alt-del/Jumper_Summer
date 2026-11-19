@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cacoe0112xh45"]
+
+[ext_resource type="AudioStream" uid="uid://dg6icue8dj3wk" path="res://resources/jumper_summer audio.wav" id="1_b0qhv"]
+
+[node name="background_audio" type="AudioStreamPlayer" unique_id=906311612]
+stream = ExtResource("1_b0qhv")
+autoplay = true
