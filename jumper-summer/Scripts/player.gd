@@ -2,15 +2,17 @@ extends CharacterBody2D
 
 var gravity := 18.5
 var jump_height = -320.0
+var wind_velocity: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	var input_x: float = Input.get_axis("move_left", "move_right")
 	velocity.x = input_x * get_player_speed()
 	
-	
 	if_is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_height
-	velocity.y += gravity
+	
+	velocity.y += gravity if wind_velocity.y == 0.0 else 0.0
+	velocity += wind_velocity * 0.4
 	move_and_slide()
 	$AnimatedSprite2D.play(frame_animation())
 

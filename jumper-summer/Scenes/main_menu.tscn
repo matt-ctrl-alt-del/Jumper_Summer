@@ -2,22 +2,41 @@
 
 [ext_resource type="Script" uid="uid://c8k35y6fmrcef" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="PackedScene" uid="uid://b38fu7ldixv1d" path="res://Scenes/fade_transition.tscn" id="2_1ehe0"]
+[ext_resource type="FontFile" uid="uid://bjxngvt11uyfx" path="res://resources/Font/carta_bianca/CartaBianca-Regular_PERSONAL_USE_ONLY.otf" id="2_ce3w2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2poj3"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ebmjs"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_qxrlw"]
+content_margin_left = 10.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wrm1d"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erv1k"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1ehe0"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_28flt"]
+content_margin_left = 10.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_48xlc"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
 
 [node name="Main_menu" type="Control" unique_id=429417627]
 layout_mode = 3
@@ -33,13 +52,18 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+offset_top = -59.0
+offset_right = 161.0
+offset_bottom = 59.0
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=2077154597]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2poj3")
 theme_override_styles/pressed = SubResource("StyleBoxLine_ebmjs")
 theme_override_styles/hover = SubResource("StyleBoxLine_qxrlw")
@@ -48,6 +72,10 @@ text = "Play"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1751484969]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxLine_1ehe0")
 theme_override_styles/hover = SubResource("StyleBoxLine_28flt")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cdfydpn2wnb8u"]
+
+[ext_resource type="Script" uid="uid://cl5gdmc8lptbl" path="res://Scripts/loading_screen.gd" id="1_oobaa"]
+[ext_resource type="FontFile" uid="uid://bjxngvt11uyfx" path="res://resources/Font/carta_bianca/CartaBianca-Regular_PERSONAL_USE_ONLY.otf" id="2_0t5xw"]
+
+[node name="loading_screen" type="Control" unique_id=1602091377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oobaa")
+next_scene = "uid://d0wovbp0whm2e"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=640211218]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1479132041]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0t5xw")
+theme_override_font_sizes/font_size = 50

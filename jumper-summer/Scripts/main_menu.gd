@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 func _on_play_pressed() -> void:
 	$CanvasLayer/Fade_transition/AnimationPlayer.play("fade_in")
 	await $CanvasLayer/Fade_transition/AnimationPlayer.animation_finished
-	get_tree().change_scene_to_file("res://Scenes/game.tscn") 
+	get_tree().change_scene_to_file("res://Scenes/loading_screen.tscn") 
 
 func _on_quit_pressed() -> void:
 	$CanvasLayer/Fade_transition/AnimationPlayer.play("fade_in")
