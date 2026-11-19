@@ -85,7 +85,6 @@ text = "Quit"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1433711841]
 
 [node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("2_1ehe0")]
-visible = false
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

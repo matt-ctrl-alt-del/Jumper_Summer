@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cl5gdmc8lptbl" path="res://Scripts/loading_screen.gd" id="1_oobaa"]
 [ext_resource type="FontFile" uid="uid://bjxngvt11uyfx" path="res://resources/Font/carta_bianca/CartaBianca-Regular_PERSONAL_USE_ONLY.otf" id="2_0t5xw"]
+[ext_resource type="PackedScene" uid="uid://b38fu7ldixv1d" path="res://Scenes/fade_transition.tscn" id="3_fayou"]
+[ext_resource type="PackedScene" uid="uid://dap7kj6j0wtge" path="res://Scenes/water_transition.tscn" id="4_1godw"]
 
 [node name="loading_screen" type="Control" unique_id=1602091377]
 layout_mode = 3
@@ -31,3 +33,9 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0t5xw")
 theme_override_font_sizes/font_size = 50
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=571684006]
+
+[node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("3_fayou")]
+
+[node name="Water_transition" parent="CanvasLayer" unique_id=7010909 instance=ExtResource("4_1godw")]
