@@ -31,6 +31,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1479132041]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.69803923, 0.7882353, 1)
 theme_override_fonts/font = ExtResource("2_0t5xw")
 theme_override_font_sizes/font_size = 50
 
@@ -39,3 +40,9 @@ theme_override_font_sizes/font_size = 50
 [node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("3_fayou")]
 
 [node name="Water_transition" parent="CanvasLayer" unique_id=7010909 instance=ExtResource("4_1godw")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1443105233]
+z_index = -2
+layout_mode = 1
+offset_right = 1156.0
+offset_bottom = 648.0

@@ -8,7 +8,7 @@ func _physics_process(delta: float) -> void:
 	var input_x: float = Input.get_axis("move_left", "move_right")
 	velocity.x = input_x * get_player_speed()
 	
-	if_is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_height
 	
 	velocity.y += gravity if wind_velocity.y == 0.0 else 0.0
@@ -32,7 +32,7 @@ func frame_animation() -> String:
 		return "jump" if velocity.y < 0 else "walk"
 	
 	if is_moving:
-		if Input.is_action_pressed("Sprint"):
+		if Input.is_action_pressed("sprint"):
 			return "walk"
 		if Input.is_action_pressed("move_down"):
 			return "crouch_walk"
@@ -40,4 +40,4 @@ func frame_animation() -> String:
 		
 	if Input.is_action_pressed("move_down"):
 		return "crouch_walk"
-		return "walk"
+	return "walk"

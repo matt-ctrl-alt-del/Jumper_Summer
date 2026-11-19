@@ -3,12 +3,33 @@
 [ext_resource type="Script" uid="uid://d174nfd360h6i" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b38fu7ldixv1d" path="res://Scenes/fade_transition.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dap7kj6j0wtge" path="res://Scenes/water_transition.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://cgh8cgfh3fjqi" path="res://Scenes/map.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://db68boeipcagv" path="res://Scenes/player.tscn" id="5_i6g32"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_662ny"]
 
 [node name="game" type="Node2D" unique_id=1126370356]
 script = ExtResource("1_qxrlw")
 
+[node name="player" parent="." unique_id=789829972 instance=ExtResource("5_i6g32")]
+position = Vector2(36, 77)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=727159456]
 
 [node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("2_wrm1d")]
+visible = false
 
 [node name="Water_transition" parent="CanvasLayer" unique_id=7010909 instance=ExtResource("3_3dryh")]
+visible = false
+
+[node name="map" parent="." unique_id=875968759 instance=ExtResource("4_wowpa")]
+
+[node name="Killzone" type="Node2D" parent="." unique_id=353347253]
+
+[node name="Area2D" type="Area2D" parent="Killzone" unique_id=126682161]
+position = Vector2(-185, 475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/Area2D" unique_id=832180609]
+shape = SubResource("WorldBoundaryShape2D_662ny")
+
+[connection signal="body_entered" from="Killzone/Area2D" to="." method="_on_area_2d_body_entered"]
