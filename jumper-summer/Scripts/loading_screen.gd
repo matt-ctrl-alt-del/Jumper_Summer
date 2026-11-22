@@ -22,7 +22,7 @@ func _on_time_up() -> void:
 	if next_scene != "":
 		$CanvasLayer/Water_transition.show()
 		$CanvasLayer/Water_transition/AnimatedSprite2D.play("fade_in")
-		await $CanvasLayer/Water_transition/AnimatedSprite2D.animation_finished
+		await get_tree().create_timer(1.2).timeout
 		get_tree().change_scene_to_file(next_scene)
 	else:
 		print("Error. Add a scene.")

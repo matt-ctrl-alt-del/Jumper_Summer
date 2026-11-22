@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dap7kj6j0wtge"]
 
-[ext_resource type="Texture2D" uid="uid://cl2yrk1cot8rq" path="res://Sprites/ui/water_transition.png" id="1_bmpvs"]
+[ext_resource type="Texture2D" uid="uid://cpv2oyyhc8tg7" path="res://Sprites/ui/water_transition_jumper_summer_final.png" id="1_bmpvs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjmru"]
 atlas = ExtResource("1_bmpvs")
@@ -34,43 +34,27 @@ region = Rect2(0, 300, 100, 50)
 atlas = ExtResource("1_bmpvs")
 region = Rect2(0, 350, 100, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2qd2"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 400, 100, 50)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt1g3"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 400, 100, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lv4e1"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 350, 100, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4mo5"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 300, 100, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_poi74"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 250, 100, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfvj3"]
-atlas = ExtResource("1_bmpvs")
-region = Rect2(0, 200, 100, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2ls6"]
 atlas = ExtResource("1_bmpvs")
 region = Rect2(0, 150, 100, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1rti"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2qd2"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 200, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv4e1"]
 atlas = ExtResource("1_bmpvs")
 region = Rect2(0, 100, 100, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dg4me"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4mo5"]
 atlas = ExtResource("1_bmpvs")
 region = Rect2(0, 50, 100, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_accyr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfvj3"]
+atlas = ExtResource("1_bmpvs")
+region = Rect2(0, 250, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poi74"]
 atlas = ExtResource("1_bmpvs")
 region = Rect2(0, 0, 100, 50)
 
@@ -100,9 +84,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_viuly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2qd2")
 }],
 "loop": 0,
 "name": &"fade_in",
@@ -113,28 +94,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_qt1g3")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r2qd2")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lv4e1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h4mo5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_poi74")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_lfvj3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2ls6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k1rti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dg4me")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_accyr")
+"texture": SubResource("AtlasTexture_poi74")
 }],
 "loop": 0,
 "name": &"fade_out",
@@ -154,5 +126,7 @@ scale = Vector2(11.5, 13)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2011584534]
 sprite_frames = SubResource("SpriteFrames_662ny")
-animation = &"fade_in"
+animation = &"fade_out"
 autoplay = "fade_in"
+frame = 5
+frame_progress = 1.0

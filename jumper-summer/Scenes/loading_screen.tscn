@@ -31,7 +31,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1479132041]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_colors/font_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
 theme_override_fonts/font = ExtResource("2_0t5xw")
 theme_override_font_sizes/font_size = 50
 
@@ -46,3 +46,4 @@ z_index = -2
 layout_mode = 1
 offset_right = 1156.0
 offset_bottom = 648.0
+color = Color(0.9607843, 0.92941177, 0.7294118, 1)
