@@ -12,6 +12,7 @@ func _object_entered(object: Node2D) -> void:
 		if speed.y < 0.0:
 			object.velocity.y = speed.y
 		object.wind_velocity += speed
+		$AudioStreamPlayer.playing = true
 
 func _object_exited(object: Node2D) -> void:
 	if "wind_velocity" in object:

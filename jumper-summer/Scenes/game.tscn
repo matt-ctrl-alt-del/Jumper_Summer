@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dgga0x8ltpcuh" path="res://Scenes/flag.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://djjfcvaj83lxo" path="res://Scenes/waypoint_marker.tscn" id="10_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://dr6aiafs7ucm6" path="res://Scenes/crate.tscn" id="11_rku1e"]
+[ext_resource type="AudioStream" uid="uid://cv0en1avv0chq" path="res://resources/audio/dragon-studio-simple-whoosh-382724.mp3" id="13_rfjv2"]
+[ext_resource type="FontFile" uid="uid://bjxngvt11uyfx" path="res://resources/Font/carta_bianca/CartaBianca-Regular_PERSONAL_USE_ONLY.otf" id="14_1phco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_662ny"]
 size = Vector2(6, 11)
@@ -23,6 +25,21 @@ size = Vector2(76, 39.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u5hx"]
 size = Vector2(157, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
+size = Vector2(78, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb51f"]
+size = Vector2(153, 41.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnt18"]
+size = Vector2(122, 41.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pqpv"]
+size = Vector2(267, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfjv2"]
+size = Vector2(1255, 690)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
 atlas = ExtResource("7_v158k")
@@ -127,14 +144,17 @@ gravity = Vector3(0, -50, 0)
 color_ramp = SubResource("GradientTexture1D_005ff")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hui80"]
-size = Vector2(97.5, 88)
+size = Vector2(240, 358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rfmp"]
+size = Vector2(1215.5, 1058)
 
 [node name="game" type="Node2D" unique_id=1126370356]
 script = ExtResource("1_qxrlw")
 
 [node name="player" parent="." unique_id=789829972 instance=ExtResource("5_i6g32")]
 z_index = 10
-position = Vector2(728, 151)
+position = Vector2(-240, -34.99997)
 scale = Vector2(0.8, 0.8)
 collision_layer = 7
 
@@ -147,7 +167,6 @@ position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_662ny")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=727159456]
-visible = false
 
 [node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("2_wrm1d")]
 
@@ -188,11 +207,56 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone2" unique_id=1873653890]
 shape = SubResource("RectangleShape2D_2u5hx")
 
+[node name="Water1Killzone3" type="Area2D" parent="Killzones" unique_id=1759984449]
+z_index = 100
+position = Vector2(3044, -639)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone3" unique_id=31247895]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_1phco")
+
+[node name="Water1Killzone4" type="Area2D" parent="Killzones" unique_id=1926285555]
+z_index = 100
+position = Vector2(2838, -704)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone4" unique_id=1802936577]
+position = Vector2(41.5, -7.75)
+shape = SubResource("RectangleShape2D_nb51f")
+
+[node name="Water1Killzone5" type="Area2D" parent="Killzones" unique_id=1115494191]
+z_index = 100
+position = Vector2(2646, -705)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone5" unique_id=506925434]
+position = Vector2(57, -7.75)
+shape = SubResource("RectangleShape2D_nnt18")
+
+[node name="Killzone4" type="Area2D" parent="Killzones" unique_id=971213295]
+position = Vector2(2328, -633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone4" unique_id=905607079]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_6pqpv")
+
+[node name="Killzone5" type="Area2D" parent="Killzones" unique_id=238812233]
+position = Vector2(4098, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone5" unique_id=778521786]
+position = Vector2(4, 294)
+shape = SubResource("RectangleShape2D_rfjv2")
+
 [node name="Fans" type="Node2D" parent="." unique_id=1291999874]
+process_mode = 3
 z_index = 1
 
 [node name="WindArea" parent="Fans" unique_id=1640412854 instance=ExtResource("6_1l0tm")]
-position = Vector2(1382, 72)
+position = Vector2(1516, 72)
 speed = Vector2(0, -200)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea" unique_id=760930432]
@@ -225,22 +289,289 @@ shape = SubResource("RectangleShape2D_005ff")
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_662ny")
 
-[node name="Flag1" parent="." unique_id=1652548891 instance=ExtResource("9_h4fw4")]
-position = Vector2(1292, 35)
+[node name="WindArea3" parent="Fans" unique_id=500014284 instance=ExtResource("6_1l0tm")]
+position = Vector2(2456, -360)
+speed = Vector2(0, -80)
 
-[node name="WaypointMarker" parent="Flag1" unique_id=1013377616 instance=ExtResource("10_o5yvi")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea3" unique_id=833581258]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea3" unique_id=1462237895]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea3" unique_id=333402273]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea4" parent="Fans" unique_id=707011668 instance=ExtResource("6_1l0tm")]
+position = Vector2(2086, -456)
+speed = Vector2(0, -180)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea4" unique_id=1043767640]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea4" unique_id=1428768825]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea4" unique_id=901312362]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea12" parent="Fans" unique_id=1796402393 instance=ExtResource("6_1l0tm")]
+position = Vector2(1993, -584)
+speed = Vector2(0, -90)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea12" unique_id=40258299]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea12" unique_id=34430561]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea12" unique_id=188185842]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea13" parent="Fans" unique_id=1067599546 instance=ExtResource("6_1l0tm")]
+position = Vector2(2593, -696)
+speed = Vector2(0, -160)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea13" unique_id=1212972022]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea13" unique_id=334855721]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea13" unique_id=1132402766]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea5" parent="Fans" unique_id=312497469 instance=ExtResource("6_1l0tm")]
+position = Vector2(2941, -840)
+speed = Vector2(0, -190)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea5" unique_id=290788715]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea5" unique_id=1764717077]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea5" unique_id=1128214971]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea6" parent="Fans" unique_id=424160094 instance=ExtResource("6_1l0tm")]
+position = Vector2(2813, -1032)
+speed = Vector2(0, -170)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea6" unique_id=1213963476]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea6" unique_id=623815734]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea6" unique_id=1645306932]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea7" parent="Fans" unique_id=1442870275 instance=ExtResource("6_1l0tm")]
+position = Vector2(3457, -696)
+speed = Vector2(0, -80)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea7" unique_id=2052174237]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea7" unique_id=1435167305]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea7" unique_id=1567473168]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea8" parent="Fans" unique_id=975448778 instance=ExtResource("6_1l0tm")]
+position = Vector2(3660, -712)
+speed = Vector2(0, -110)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea8" unique_id=1411084985]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea8" unique_id=345158789]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea8" unique_id=1066548845]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea9" parent="Fans" unique_id=1561953663 instance=ExtResource("6_1l0tm")]
+position = Vector2(3877, -792)
+speed = Vector2(0, -100)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea9" unique_id=221630508]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea9" unique_id=728779496]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea9" unique_id=900362949]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea10" parent="Fans" unique_id=73016778 instance=ExtResource("6_1l0tm")]
+position = Vector2(4020, -872)
+speed = Vector2(0, -80)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea10" unique_id=634893685]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea10" unique_id=931090841]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea10" unique_id=1772680830]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="WindArea11" parent="Fans" unique_id=947533859 instance=ExtResource("6_1l0tm")]
+position = Vector2(4116, -776)
+speed = Vector2(0, -200)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea11" unique_id=826867271]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea11" unique_id=525160796]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea11" unique_id=2078392859]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="Crates" type="Node2D" parent="." unique_id=87386635]
+
+[node name="Crate" parent="Crates" unique_id=1344490503 groups=["Crate"] instance=ExtResource("11_rku1e")]
+position = Vector2(1211, 148)
+
+[node name="Crate2" parent="Crates" unique_id=375440363 groups=["Crate"] instance=ExtResource("11_rku1e")]
+position = Vector2(1831, -231)
+
+[node name="Crate4" parent="Crates" unique_id=150646730 groups=["Crate"] instance=ExtResource("11_rku1e")]
+position = Vector2(1651, -233)
+
+[node name="Crate3" parent="Crates" unique_id=1535100117 groups=["Crate"] instance=ExtResource("11_rku1e")]
+position = Vector2(1733, -225)
+
+[node name="Crate5" parent="Crates" unique_id=1158899420 groups=["Crate"] instance=ExtResource("11_rku1e")]
+position = Vector2(2207, -351)
+
+[node name="Flags" type="Node2D" parent="." unique_id=451615361]
+
+[node name="Flag1" parent="Flags" unique_id=1652548891 instance=ExtResource("9_h4fw4")]
+position = Vector2(1377, 35)
+
+[node name="WaypointMarker" parent="Flags/Flag1" unique_id=1013377616 instance=ExtResource("10_o5yvi")]
 on_screen_offset = Vector2(0.5, -50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag1" unique_id=293824411]
-position = Vector2(0, -9)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flags/Flag1" unique_id=293824411]
+position = Vector2(57, -127)
 shape = SubResource("RectangleShape2D_hui80")
 
-[node name="Crate" parent="." unique_id=1344490503 groups=["Crate"] instance=ExtResource("11_rku1e")]
-position = Vector2(1012, 145)
+[node name="Flag2" parent="Flags" unique_id=1401765451 instance=ExtResource("9_h4fw4")]
+position = Vector2(2557, -728)
+
+[node name="WaypointMarker" parent="Flags/Flag2" unique_id=831918541 instance=ExtResource("10_o5yvi")]
+on_screen_offset = Vector2(0.5, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flags/Flag2" unique_id=1115532744]
+position = Vector2(57, -127)
+shape = SubResource("RectangleShape2D_hui80")
+
+[node name="Flag3" parent="Flags" unique_id=328384328 instance=ExtResource("9_h4fw4")]
+position = Vector2(3257, -727)
+
+[node name="WaypointMarker" parent="Flags/Flag3" unique_id=1103422576 instance=ExtResource("10_o5yvi")]
+on_screen_offset = Vector2(0.5, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flags/Flag3" unique_id=1451514561]
+position = Vector2(57, -127)
+shape = SubResource("RectangleShape2D_hui80")
+
+[node name="Flag4" parent="Flags" unique_id=628453260 instance=ExtResource("9_h4fw4")]
+position = Vector2(5227, -757)
+
+[node name="WaypointMarker" parent="Flags/Flag4" unique_id=961122430 instance=ExtResource("10_o5yvi")]
+on_screen_offset = Vector2(0.5, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flags/Flag4" unique_id=1539237125]
+position = Vector2(57, -127)
+shape = SubResource("RectangleShape2D_hui80")
+
+[node name="Audio" type="Node" parent="." unique_id=875530759]
+
+[node name="FanWhoosh" type="AudioStreamPlayer" parent="Audio" unique_id=902356633]
+stream = ExtResource("13_rfjv2")
+
+[node name="Labels" type="Node" parent="." unique_id=291932638]
+
+[node name="Label" type="Label" parent="Labels" unique_id=1736706914]
+offset_left = 5281.0
+offset_top = -749.0
+offset_right = 5500.0
+offset_bottom = -700.0
+theme_override_colors/font_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("14_1phco")
+text = "You have finished the game!"
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=393799083]
+position = Vector2(4063, -628)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1375195591]
+position = Vector2(45.25, -70)
+shape = SubResource("RectangleShape2D_5rfmp")
 
 [connection signal="body_entered" from="player/Create_Detector" to="." method="_on_create_detector_body_entered"]
 [connection signal="body_exited" from="player/Create_Detector" to="." method="_on_create_detector_body_exited"]
 [connection signal="body_entered" from="Killzones/Fall_Killzone" to="." method="_on_fall_killzone_body_entered"]
 [connection signal="body_entered" from="Killzones/Water1Killzone" to="." method="_on_water_1_killzone_body_entered"]
 [connection signal="body_entered" from="Killzones/Water1Killzone2" to="." method="_on_water_1_killzone_2_body_entered"]
-[connection signal="body_entered" from="Flag1" to="." method="_on_flag_1_body_entered"]
+[connection signal="body_entered" from="Killzones/Water1Killzone3" to="." method="_on_water_1_killzone_3_body_entered"]
+[connection signal="body_entered" from="Killzones/Water1Killzone4" to="." method="_on_water_1_killzone_4_body_entered"]
+[connection signal="body_entered" from="Killzones/Water1Killzone5" to="." method="_on_water_1_killzone_5_body_entered"]
+[connection signal="body_entered" from="Killzones/Killzone4" to="." method="_on_killzone_4_body_entered"]
+[connection signal="body_entered" from="Killzones/Killzone5" to="." method="_on_killzone_5_body_entered"]
+[connection signal="body_entered" from="Flags/Flag1" to="." method="_on_flag_1_body_entered"]
+[connection signal="body_entered" from="Flags/Flag2" to="." method="_on_flag_2_body_entered"]
+[connection signal="body_entered" from="Flags/Flag3" to="." method="_on_flag_3_body_entered"]
+[connection signal="body_entered" from="Flags/Flag4" to="." method="_on_flag_4_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

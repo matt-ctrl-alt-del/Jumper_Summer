@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://r5r362m4p0kg" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dbcfckmhdu33d" path="res://Sprites/player/player_sprite.png" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://f1fpnyqummta" path="res://resources/audio/freesound_community-pixel-death-66829.mp3" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgqql"]
 height = 28.0
@@ -239,3 +240,6 @@ position_smoothing_enabled = true
 position = Vector2(0, 13)
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1801018291]
+stream = ExtResource("3_6t5aa")

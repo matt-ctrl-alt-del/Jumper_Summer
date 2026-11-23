@@ -45,6 +45,7 @@ func frame_animation() -> String:
 func respawn():
 	get_tree().paused = true
 	$AnimatedSprite2D.play("die")
+	$AudioStreamPlayer.playing = true
 	await $AnimatedSprite2D.animation_finished
 	$Camera2D.zoom = Vector2.ONE * 5
 	await get_tree().create_timer(1.0).timeout
