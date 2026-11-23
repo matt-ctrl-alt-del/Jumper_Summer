@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://d1wlrtty0cvmh"]
+
+[ext_resource type="Script" uid="uid://duc5c3isfimp5" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="FontFile" uid="uid://bjxngvt11uyfx" path="res://resources/Font/carta_bianca/CartaBianca-Regular_PERSONAL_USE_ONLY.otf" id="2_1och7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpi0q"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vmyb1"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_myy0f"]
+content_margin_left = 10.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sjs17"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8tnp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_stj27"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ix48p"]
+content_margin_left = 10.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_524vl"]
+content_margin_left = 5.0
+color = Color(0, 0.69803923, 0.7882353, 1)
+vertical = true
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=927176751]
+script = ExtResource("1_k0w1u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=903121992]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2627451, 0.2627451, 0.2627451, 0.6862745)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1964445140]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -59.0
+offset_right = 189.0
+offset_bottom = 59.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1614478308]
+process_mode = 3
+z_index = 5
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
+theme_override_colors/font_hover_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bpi0q")
+theme_override_styles/pressed = SubResource("StyleBoxLine_vmyb1")
+theme_override_styles/hover = SubResource("StyleBoxLine_myy0f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_sjs17")
+text = "Resume"
+alignment = 0
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=660904157]
+process_mode = 3
+z_index = 5
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
+theme_override_colors/font_hover_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.69803923, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u8tnp")
+theme_override_styles/pressed = SubResource("StyleBoxLine_stj27")
+theme_override_styles/hover = SubResource("StyleBoxLine_ix48p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_524vl")
+text = "Quit"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

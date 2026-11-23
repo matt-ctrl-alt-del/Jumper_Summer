@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djjfcvaj83lxo"]
+
+[ext_resource type="Script" uid="uid://btul8nwiw5hkx" path="res://Scripts/waypoint_marker.gd" id="1_mc2j0"]
+[ext_resource type="Texture2D" uid="uid://doke6g6epo70x" path="res://Sprites/ui/waypoint_marker.png" id="1_uudsn"]
+
+[node name="WaypointMarker" type="Sprite2D" unique_id=1013377616]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_uudsn")
+script = ExtResource("1_mc2j0")
+on_screen_offset = Vector2(0.5, -25)
+screen_margin = 40.0

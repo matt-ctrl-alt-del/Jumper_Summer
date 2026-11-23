@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dgga0x8ltpcuh"]
+
+[ext_resource type="Texture2D" uid="uid://dr021d43d4yf6" path="res://Sprites/save_flag-Sheet.png" id="1_snk6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snk6q"]
+atlas = ExtResource("1_snk6q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vie08"]
+atlas = ExtResource("1_snk6q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnecg"]
+atlas = ExtResource("1_snk6q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gusjr"]
+atlas = ExtResource("1_snk6q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_662ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snk6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vie08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnecg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gusjr")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flag" type="Area2D" unique_id=1652548891]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863010146]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
