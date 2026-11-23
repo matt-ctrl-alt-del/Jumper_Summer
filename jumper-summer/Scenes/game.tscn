@@ -154,7 +154,7 @@ script = ExtResource("1_qxrlw")
 
 [node name="player" parent="." unique_id=789829972 instance=ExtResource("5_i6g32")]
 z_index = 10
-position = Vector2(-240, -34.99997)
+position = Vector2(-243, 65)
 scale = Vector2(0.8, 0.8)
 collision_layer = 7
 
@@ -376,7 +376,7 @@ process_material = SubResource("ParticleProcessMaterial_662ny")
 
 [node name="WindArea6" parent="Fans" unique_id=424160094 instance=ExtResource("6_1l0tm")]
 position = Vector2(2813, -1032)
-speed = Vector2(0, -170)
+speed = Vector2(0, -150)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea6" unique_id=1213963476]
 sprite_frames = SubResource("SpriteFrames_662ny")
@@ -552,10 +552,10 @@ theme_override_fonts/font = ExtResource("14_1phco")
 text = "You have finished the game!"
 horizontal_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="." unique_id=393799083]
+[node name="Zoom_Level" type="Area2D" parent="." unique_id=393799083]
 position = Vector2(4063, -628)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1375195591]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zoom_Level" unique_id=1375195591]
 position = Vector2(45.25, -70)
 shape = SubResource("RectangleShape2D_5rfmp")
 
@@ -573,5 +573,5 @@ shape = SubResource("RectangleShape2D_5rfmp")
 [connection signal="body_entered" from="Flags/Flag2" to="." method="_on_flag_2_body_entered"]
 [connection signal="body_entered" from="Flags/Flag3" to="." method="_on_flag_3_body_entered"]
 [connection signal="body_entered" from="Flags/Flag4" to="." method="_on_flag_4_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Zoom_Level" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Zoom_Level" to="." method="_on_area_2d_body_exited"]
