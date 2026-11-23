@@ -41,6 +41,6 @@ animations = [{
 [node name="Flag" type="Area2D" unique_id=1652548891]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863010146]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_662ny")
 autoplay = "default"

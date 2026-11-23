@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db68boeipcagv" path="res://Scenes/player.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://d1wlrtty0cvmh" path="res://Scenes/pause_menu.tscn" id="5_v158k"]
 [ext_resource type="PackedScene" uid="uid://cp6gtr6lf4wab" path="res://Scenes/wind_area.tscn" id="6_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://cb6o0iqrpk111" path="res://Scenes/tracker.tscn" id="6_rku1e"]
 [ext_resource type="Texture2D" uid="uid://y8tsvrcuulsr" path="res://Sprites/fan.png" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://dgga0x8ltpcuh" path="res://Scenes/flag.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://djjfcvaj83lxo" path="res://Scenes/waypoint_marker.tscn" id="10_o5yvi"]
@@ -16,6 +17,12 @@
 size = Vector2(6, 11)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_662ny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rku1e"]
+size = Vector2(76, 39.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u5hx"]
+size = Vector2(157, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
 atlas = ExtResource("7_v158k")
@@ -119,12 +126,17 @@ angle_max = 90.000015
 gravity = Vector3(0, -50, 0)
 color_ramp = SubResource("GradientTexture1D_005ff")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hui80"]
+size = Vector2(97.5, 88)
+
 [node name="game" type="Node2D" unique_id=1126370356]
 script = ExtResource("1_qxrlw")
 
 [node name="player" parent="." unique_id=789829972 instance=ExtResource("5_i6g32")]
 z_index = 10
-position = Vector2(36, 77)
+position = Vector2(728, 151)
+scale = Vector2(0.8, 0.8)
+collision_layer = 7
 
 [node name="Create_Detector" type="Area2D" parent="player" unique_id=1946503375]
 collision_layer = 3
@@ -135,33 +147,53 @@ position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_662ny")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=727159456]
+visible = false
 
 [node name="Fade_transition" parent="CanvasLayer" unique_id=1398480478 instance=ExtResource("2_wrm1d")]
-visible = false
 
 [node name="Water_transition" parent="CanvasLayer" unique_id=7010909 instance=ExtResource("3_3dryh")]
-visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=927176751 instance=ExtResource("5_v158k")]
 visible = false
 
+[node name="Tracker" parent="CanvasLayer" unique_id=302641040 instance=ExtResource("6_rku1e")]
+
 [node name="map" parent="." unique_id=875968759 instance=ExtResource("4_wowpa")]
 z_index = -5
 
-[node name="Killzone" type="Node2D" parent="." unique_id=353347253]
+[node name="Killzones" type="Node2D" parent="." unique_id=353347253]
 
-[node name="Area2D" type="Area2D" parent="Killzone" unique_id=126682161]
+[node name="Fall_Killzone" type="Area2D" parent="Killzones" unique_id=126682161]
 position = Vector2(-185, 475)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/Area2D" unique_id=832180609]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Fall_Killzone" unique_id=832180609]
 shape = SubResource("WorldBoundaryShape2D_662ny")
+
+[node name="Water1Killzone" type="Area2D" parent="Killzones" unique_id=1191145100]
+z_index = 100
+position = Vector2(1048, 192)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone" unique_id=1641371647]
+position = Vector2(0, 8.75)
+shape = SubResource("RectangleShape2D_rku1e")
+
+[node name="Water1Killzone2" type="Area2D" parent="Killzones" unique_id=1496213678]
+z_index = 100
+position = Vector2(544, 335)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Water1Killzone2" unique_id=1873653890]
+shape = SubResource("RectangleShape2D_2u5hx")
 
 [node name="Fans" type="Node2D" parent="." unique_id=1291999874]
 z_index = 1
 
 [node name="WindArea" parent="Fans" unique_id=1640412854 instance=ExtResource("6_1l0tm")]
-position = Vector2(62, 200)
-speed = Vector2(0, -20)
+position = Vector2(1382, 72)
+speed = Vector2(0, -200)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea" unique_id=760930432]
 sprite_frames = SubResource("SpriteFrames_662ny")
@@ -176,15 +208,39 @@ shape = SubResource("RectangleShape2D_005ff")
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_662ny")
 
-[node name="Flag" parent="." unique_id=1652548891 instance=ExtResource("9_h4fw4")]
-position = Vector2(-55, 181)
+[node name="WindArea2" parent="Fans" unique_id=2091374960 instance=ExtResource("6_1l0tm")]
+position = Vector2(996, 168)
+speed = Vector2(0, -80)
 
-[node name="WaypointMarker" parent="Flag" unique_id=1013377616 instance=ExtResource("10_o5yvi")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/WindArea2" unique_id=747186090]
+sprite_frames = SubResource("SpriteFrames_662ny")
+autoplay = "default"
+frame_progress = 0.89350265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/WindArea2" unique_id=1086555914]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_005ff")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/WindArea2" unique_id=607818805]
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_662ny")
+
+[node name="Flag1" parent="." unique_id=1652548891 instance=ExtResource("9_h4fw4")]
+position = Vector2(1292, 35)
+
+[node name="WaypointMarker" parent="Flag1" unique_id=1013377616 instance=ExtResource("10_o5yvi")]
 on_screen_offset = Vector2(0.5, -50)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag1" unique_id=293824411]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_hui80")
+
 [node name="Crate" parent="." unique_id=1344490503 groups=["Crate"] instance=ExtResource("11_rku1e")]
-position = Vector2(202, 192)
+position = Vector2(1012, 145)
 
 [connection signal="body_entered" from="player/Create_Detector" to="." method="_on_create_detector_body_entered"]
 [connection signal="body_exited" from="player/Create_Detector" to="." method="_on_create_detector_body_exited"]
-[connection signal="body_entered" from="Killzone/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Killzones/Fall_Killzone" to="." method="_on_fall_killzone_body_entered"]
+[connection signal="body_entered" from="Killzones/Water1Killzone" to="." method="_on_water_1_killzone_body_entered"]
+[connection signal="body_entered" from="Killzones/Water1Killzone2" to="." method="_on_water_1_killzone_2_body_entered"]
+[connection signal="body_entered" from="Flag1" to="." method="_on_flag_1_body_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b16sjws6pe6o4" path="res://Sprites/barrel.png" id="1_wp72f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_662ny"]
-size = Vector2(26, 30)
+size = Vector2(38, 44)
 
 [node name="Crate" type="RigidBody2D" unique_id=1344490503]
 collision_layer = 2
@@ -14,4 +14,5 @@ z_index = 2
 shape = SubResource("RectangleShape2D_662ny")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1597338352]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_wp72f")
