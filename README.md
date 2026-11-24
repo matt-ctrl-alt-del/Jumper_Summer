@@ -10,11 +10,11 @@ Jumper summer is a platformer about manipulating your environment and making use
 The game where I mixed everything I have learned from Terra and my past projects so far and also the new knowledge I have from Hack Club Haven. The game is a platformer where the player needs to utilize the environment to finish it.
 
 <h3> Controls: </h3>
-ESC - Pause
-A - Move left
-S - Move down
-D - Move right
-Spacebar -  Jump
+ESC - Pause, 
+A - Move left, 
+S - Move down, 
+D - Move right, 
+Spacebar -  Jump. 
 *Use the barrels and the fans to navigate through the game. They are meant to me moved or used.
 
 <h3> Play: </h3>
